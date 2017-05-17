@@ -16,7 +16,7 @@ app.get("/typingspeed", function (request,response) {
     });
 
     
-    app.listen(8080, function (err) {
+    app.listen((process.env.PORT || 5000), function (err) {
         if(err){
             //GET 404 page
     app.get("/typingspeed", function (request,response) {
