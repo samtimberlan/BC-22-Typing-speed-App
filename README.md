@@ -9,4 +9,4 @@ This app depends on the following node modules
 # Installation
 Run command <pre>npm install</pre>
 
-A deployed version is here 
+A deployed version is here https://typing-speed-app.herokuapp.com/
