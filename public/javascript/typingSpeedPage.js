@@ -10,7 +10,6 @@ let stringWord = "Innovative Technical Solutions, LLC (ITS) is a Native American
                 " relevance management, information security, environmental " + 
                 "management, fire services management, fire protection " + 
                 "engineering, and protective force expertise.";
-
                 
 let neededWord = document.getElementById('wordToTypeField');
 neededWord.innerHTML = stringWord;
