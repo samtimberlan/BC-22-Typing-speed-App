@@ -47,6 +47,16 @@ body {
   display: table-cell;
   vertical-align: top;
 }
+
+.myNav .navbar-brand{ 
+  background: url(http://4.bp.blogspot.com/-TGFtTyRpjrI/VosK6fFla-I/AAAAAAAAFj4/gWMLwh5KuuA/s1600/typing.png); center / contain no-repeat;
+  width: 200px;
+}
+.navbar-default {
+    background-color: red;
+    border-color: #E7E7E7;
+}
+
 .cover-container {
   margin-right: auto;
   margin-left: auto;
