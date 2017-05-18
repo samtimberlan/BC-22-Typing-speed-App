@@ -23,22 +23,42 @@ let errorCount = 0;
    return JSON.parse(`{ "result" : ${result}, "errors": ${errorCount}}`);
 }
 
+      
 
 const beginTest = () => {
-   // Deter copy and paste
-   /* neededWord.addEventListener('copy cut paste', e => e.preventDefault());*/
-   window.onload();
-    //timer;
+  let timeInSecs = 60;
+  let timer = console.log("hello world");
+   setInterval(()=>{
+      let timerDisplay = document.getElementById("displayInformation");
+      if(timeInSecs !== 0){
+        timeInSecs --;
+        if(timeInSecs >= 10){
+          timerDisplay.innerHTML = timeInSecs + "s remaining";
+          timerDisplay.style.color= "green";
+        }
+        else if(timeInSecs < 10){
+          timerDisplay.innerHTML = timeInSecs + 's '+"<p><b>Come on, You can do it!<b></p>";
+          timerDisplay.style.color= "red";
+        }
+        }else if(timeInSecs <= 0){
+          clearInterval(timer);
+          timerDisplay.innerHTML = timeInSecs + 's '+"<p><b>Come on, You can do it!<b></p>";
+          endTest();
+      }
+},1000);
 }
-
+ document.querySelector("#startTest").addEventListener('click', beginTest);
+ document.querySelector("#inputType").addEventListener('focus', beginTest); 
 
 
 const endTest = ()=>{
+  //clearInterval(timer);
   let displayInformation = document.getElementById("displayInformation");
   if(typedWord === ""){
     displayInformation.innerHTML = "Hey it seems you did not type anything.";
   }
   else{
+    //clearInterval(timer);
     let calcWpm = calcGrossWPM(typedWord);
     let calNWpm = calcNetWPM(stringWord, typedWord);
      if(calcNetWPM().result> 0){
@@ -52,27 +72,4 @@ const endTest = ()=>{
   }
 }
 
-
-let timer = setInterval(()=>{
-  let timeInSecs = 60;
-  let timerDisplay = document.getElementById("displayInformation");
-  if(timeInSecs !== 0){
-    timeInSecs --;
-    if(timeInSecs >= 10){
-      timerDisplay.innerHTML = timeInSecs + "s remaining";
-      timerDisplay.style.color= "green";
-    }
-    else if(num < 10){
-      timerDisplay.innerHTML = timeInSecs + 's '+"<p>Come on, You can do it!</p>;";
-      timerDisplay.style.color= "red";
-    }
-    else if(timeInSecs <= 0){
-      clearInterval(timer);
-      endTest();
-    }
-  }
-},1000);
-  
-
-  document.getElementById("startTest").addEventListener('click', beginTest.bind());
-document.getElementById("stopTest").addEventListener('click', endTest.bind());
+document.querySelector("#stopTest").addEventListener('click', endTest);
