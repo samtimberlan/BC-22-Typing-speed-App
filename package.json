@@ -8,6 +8,7 @@
     "express": "^4.15.2",
     "firebase-admin": "~4.2.1",
     "firebase-functions": "^0.5",
+    "firebaseui": "^2.0.0",
     "jasmine": "^2.6.0"
   },
   "private": true
