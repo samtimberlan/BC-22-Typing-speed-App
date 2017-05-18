@@ -51,6 +51,7 @@ body {
 .myNav .navbar-brand{ 
   background: url(http://4.bp.blogspot.com/-TGFtTyRpjrI/VosK6fFla-I/AAAAAAAAFj4/gWMLwh5KuuA/s1600/typing.png); center / contain no-repeat;
   width: 200px;
+  color:red;
 }
 .navbar-default {
     background-color: red;
@@ -132,8 +133,15 @@ body {
 	direction: ltr;
     height: 200px;
     font-size: 16px;
-	/*background: url(http://typingtutorfree.com/Learn-typing-online.png);*/
+	/**/
 	color: green;
+}
+
+.typingImg{
+	margin: auto;
+	width:75%;
+	background: url(http://typingtutorfree.com/Learn-typing-online.png) no-repeat;
+    height: 200px;
 }
 
 /*
