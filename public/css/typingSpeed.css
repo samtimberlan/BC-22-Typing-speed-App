@@ -20,7 +20,7 @@ a:hover {
 html,
 body {
 /*css for full size background image*/
- background: url(http://wallpaper-gallery.net/images/background-wallpaper-in-hd/background-wallpaper-in-hd-7.jpg) no-repeat center center fixed; 
+ /*background: url(http://wallpaper-gallery.net/images/background-wallpaper-in-hd/background-wallpaper-in-hd-7.jpg) no-repeat center center fixed; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -122,8 +122,8 @@ body {
 	direction: ltr;
     height: 200px;
     font-size: 16px;
-	background: url(http://typingtutorfree.com/Learn-typing-online.png);
-	color: blue	
+	/*background: url(http://typingtutorfree.com/Learn-typing-online.png);*/
+	color: green;
 }
 
 /*

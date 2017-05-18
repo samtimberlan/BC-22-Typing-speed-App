@@ -26,13 +26,16 @@
       </div>
 
       <div class="inner cover">
+        <p class="lead" id="displayInformation">
+                       
+        </p>
         <h1 class="cover-heading">Test your typing speed</h1>
 
         <p class="lead" id="wordToTypeField">
                        
         </p>
 		
-		<p><textarea type="text" id="inputType" class="form-control" placeholder="Type here" required autofocus></textarea></p>
+		<p><textarea type="text" id="inputType" class="form-control" placeholder="Type here" required ></textarea></p>
 
         <p class="lead">
           <a class="btn btn-lg btn-info" id="startTest"  href="#">Start Test</a>
@@ -55,40 +58,71 @@
 let neededWord = document.getElementById('wordToTypeField');
 neededWord.innerHTML = stringWord;
 //let givenWord = stringWord.split('');
-let typedWord = document.getElementById('typingField').innerHTML;
+let typedWord = document.getElementById('inputType').value;
 //let wordLength = typedWord.split('').length;
 //let lettersInGivenString = typedWord.split('');
 let errorCount = 0;
 
 
-// Deter copy and paste
-neededWord.on('copy cut paste', e => e.preventDefault());
 
  const calcGrossWPM = (wordsTyped) => {
      return Math.round((wordsTyped/5)/1);  // Divides by one or any time specified by the timer
  }
 
  const calcNetWPM = (originalWords, typedWords) => {
+   let orignalLettersArray = originalWords.split('');
+   let neededLettersArray = originalWords.split('');
      for(counter = 0; counter < typedWords.length; counter++){
          if(typedWords[counter] !== originalWords[counter]){
              errorCount++
          }
-     return ((lettersInGivenString/5)-errorCount)/1
+     const result = ((neededLettersArray/5)-errorCount)/1
  }
-
+   return JSON.parse(`{ "result" : ${result}, "errors": ${errorCount}}`);
 }
+
+let timer = setInterval(()=>{
+  let timeInSecs = 60;
+  let timerDisplay = document.getElementById("displayInformation");
+  if(timeInSecs !== 0){
+    timeInSecs --;
+    if(timeInSecs >= 10){
+      timerDisplay.innerHTML = timeInSecs + "s remaining";
+      timerDisplay.style.color= "green";
+    }
+    else if(num < 10){
+      timerDisplay.innerHTML = timeInSecs + 's '+"<p>Come on, You can do it!</p>;";
+      timerDisplay.style.color= "red";
+    }
+    else if(timeInSecs <= 0){
+      clearInterval(timer);
+    }
+  }
+},1000);
 
 const beginTest = () => {
-    let info = document.getElementById("displayInformation"); 
-    info.innerHTML = "Starting";
-    let dateObject = new Date();
-    dateObject.getTime();
-    setTimeout(1000)
-    info.innerHTML = "Time up!";
+   // Deter copy and paste
+    neededWord.addEventListener('copy cut paste', e => e.preventDefault());
+    timer;
 }
+document.getElementById("inputType").addEventListener('focus', beginTest.bind());
 
-document.getElementById("startTest").addEventListener("click", beginTest());
+
+const endTest = ()=>{
+  let displayInformation = document.getElementById("displayInformation");
+  if(typedWord === ""){
+    displayInformation.innerHTML = "Hey it seems you did not type anything.";
+  }
+  else{
+    let calcWpm = calcGrossWPM(typedWord);
+    let calNWpm = calcNetWPM(stringWord, typedWord);
+  }
+}
+  
+
 //})
+
+
 </script>
 	</body>
 </html>
